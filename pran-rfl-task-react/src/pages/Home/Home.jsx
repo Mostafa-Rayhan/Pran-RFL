@@ -1,30 +1,53 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
-const Home = () => {
-     const categories = [
+const categories = [
     { name: "IT", count: 2 },
     { name: "HR", count: 1 },
     { name: "SALES", count: 2 },
     { name: "ACCOUNTS", count: 1 },
   ];
+
+const Home = () => {
+  const navigate = useNavigate();
+
+  const handleCardClick = (categoryName) => {
+    navigate(`/jobs/${categoryName.toLowerCase()}`);
+  };
+  
   return (
-    
-        <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-lg shadow-md p-6 w-full max-w-md">
-        <h1 className="text-2xl font-bold text-gray-800 mb-6">Explore Job Categories</h1>
-        
-        <ul className="space-y-3">
-          {categories.map((category, index) => (
-            <li key={index} className="flex justify-between items-center p-3 hover:bg-gray-100 rounded-md transition-colors">
-              <span className="font-medium text-gray-700">{category.name}</span>
-              <span className="text-sm bg-gray-200 text-gray-600 px-2 py-1 rounded-full">
-                {category.count} job(s)
-              </span>
-            </li>
-          ))}
-        </ul>
-      </div>
+
+    <div
+      style={{
+        backgroundImage: "url('/src/assets/jobs.avif')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        height: '100vh',
+        color: 'white',
+      }}
+    >
+        <div className='container mx-auto flex flex-col h-full text-center'>
+            <h1 className='text-4xl font-bold text-gray-700 pt-32'>Explore Job Categories</h1>
+
+            <div className="container mx-auto px-4 py-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    {categories.map((category, index) => (
+                    <div
+                        key={index}
+                        onClick={() => handleCardClick(category.name)}
+                        className="bg-white rounded-xl shadow-md p-6 border border-gray-200 text-center"
+                    >
+                        <h2 className="text-xl font-semibold text-blue-800">{category.name}</h2>
+                        <p className="text-gray-500 mt-2">{category.count} job(s)</p>
+                    </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+
     </div>
+    
+
   )
 }
 
