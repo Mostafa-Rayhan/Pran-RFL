@@ -1,8 +1,8 @@
 import React from 'react'
-import { useParams } from 'react-router-dom';
+//import { useParams } from 'react-router-dom';
 
 const JobApply = () => {
-    const { id } = useParams(); // Get job ID
+    //const { id } = useParams(); // Get job ID
 
   return (
     <div className="container mx-auto px-4 py-8 flex flex-col md:flex-row">
