@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home/Home';
 import Jobs from './pages/Jobs/Jobs';
 import JobDetails from './pages/JobDetails/JobDetails';
+import JobApply from './pages/JobApply/JobApply';
 
 
 function App() {
@@ -17,8 +18,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/jobs/:category" element={<Jobs />} />
           <Route path="/jobs/details/:id" element={<JobDetails />} />
-        </Routes>
-        
+          <Route path="/jobapply/:id" element={<JobApply />} />
+        </Routes>        
       </div>
     </Router>
     

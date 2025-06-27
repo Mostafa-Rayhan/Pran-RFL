@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const jobData = [
   {
@@ -26,7 +27,9 @@ const jobData = [
 ];
 
 const JobDetails = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
+
   const job = jobData.find((j) => j.id === parseInt(id));
 
   if (!job) {
@@ -126,7 +129,9 @@ const JobDetails = () => {
 
         {/* Apply Button */}
         <div className="px-6 py-4 bg-gray-50 text-center">
-          <button className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+          <button 
+            onClick={() => navigate(`/jobapply/${job.id}`)}
+            className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
             APPLY NOW
           </button>
         </div>
