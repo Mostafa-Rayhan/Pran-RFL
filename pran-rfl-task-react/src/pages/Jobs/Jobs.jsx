@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaBuilding, FaMapMarkerAlt, FaGraduationCap, FaCalendarAlt } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const jobs = [
   {
@@ -23,6 +24,12 @@ const jobs = [
 ];
 
 const Jobs = () => {
+    const navigate = useNavigate();
+
+    const handleDetails = (id) => {
+    navigate(`/jobs/details/${id}`);
+
+  };
   return (
     <div
       style={{
@@ -66,7 +73,10 @@ const Jobs = () => {
                         </div>
                     </div>
 
-                    <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 w-full">
+                    <button 
+                        onClick={() => handleDetails(job.id)}
+                        className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 w-full"
+                    >
                         Show Details
                     </button>
                     </div>
