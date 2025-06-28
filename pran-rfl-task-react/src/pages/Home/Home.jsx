@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 const categories = [
     { name: "IT", count: 2 },
     { name: "HR", count: 1 },
-    { name: "SALES", count: 2 },
-    { name: "ACCOUNTS", count: 1 },
+    { name: "SALES", count: 0 },
+    { name: "ACCOUNTS", count: 0 },
   ];
 
 const Home = () => {
